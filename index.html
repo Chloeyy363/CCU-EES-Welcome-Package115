@@ -95,16 +95,6 @@
     font-family:'Noto Serif TC',serif; color:var(--limestone);
     font-size:16px; font-weight:700; margin-right:auto;
     text-decoration:none; letter-spacing:0.06em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  #topnav .brand img.brand-logo{
-    height: 38px;
-    width: auto;
-    border-radius: 50%;
-    background: #fff;
-    padding: 2px;
   }
   #topnav ul{
     list-style:none; display:flex; gap:6px; align-items:center;
@@ -217,7 +207,7 @@
   .course p{opacity:0.88; font-size:0.98rem;}
   @media (max-width:720px){.course{grid-template-columns:1fr; gap:8px;}}
 
-  /* 特色課程輪播結構 */
+  /* ---------- 圖左、字在右的「自動/手動自適應輪播元件」 ---------- */
   .course-split-carousel {
     display: flex;
     gap: 32px;
@@ -331,7 +321,7 @@
   .act h3{font-size:1.25rem; margin-bottom:12px; color:var(--sand);}
   .act p{font-size:0.94rem; opacity:0.85; margin-bottom:15px; flex-grow: 1;}
 
-  /* 雙圖並排樣式 */
+  /* ---------- 雙圖並排樣式 ---------- */
   .grid-images-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -357,7 +347,7 @@
     display: block;
   }
 
-  /* 車證辦理版面 */
+  /* ---------- 車證辦理：左右分欄版面 ---------- */
   .license-layout {
     display: flex;
     gap: 28px;
@@ -402,7 +392,7 @@
     }
   }
 
-  /* 統一按鈕設計系統 */
+  /* ---------- 統一按鈕設計系統 ---------- */
   .doc-btn {
     display: inline-flex;
     align-items: center;
@@ -472,7 +462,7 @@
     white-space: nowrap;
   }
 
-  /* sub-page shared components */
+  /* ---------- sub-page shared components ---------- */
   .subhead{
     font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.14em;
     opacity:0.55; text-transform:uppercase; margin:46px 0 16px;
@@ -500,6 +490,7 @@
   }
   #clubs .chip{background:rgba(255,255,255,0.08); border-color:rgba(244,236,216,0.3); color:var(--sand);}
 
+  /* 單張滿寬圖卡 */
   .full-image-card {
     background: rgba(36,31,26,0.03);
     border: 1px solid var(--line);
@@ -515,11 +506,11 @@
     display: block;
   }
 
-  /* 左右分欄排版（通英免修圖放右半邊並限制高度） */
+  /* 💡 左右分欄排版（修復：讓圖片自適應大小，寬度滿欄，高度等比縮放） 💡 */
   .split-layout {
     display: flex;
     gap: 32px;
-    align-items: stretch;
+    align-items: flex-start; 
     margin: 24px 0;
   }
   .split-layout.reverse {
@@ -538,25 +529,22 @@
     border: 1px solid var(--line);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     background: rgba(36,31,26,0.02);
+    padding: 8px;
   }
   .split-media img {
     width: 100%;
-    height: 100%;
-    max-height: 240px;
-    object-fit: contain;
+    height: auto;
     display: block;
+    border-radius: 4px;
   }
   @media(max-width: 768px){
     .split-layout, .split-layout.reverse {
       flex-direction: column;
       gap: 16px;
     }
-    .split-media img {
-      max-height: none;
-    }
   }
 
-  /* 系隊專屬大版面宣傳 */
+  /* ---------- 系隊專屬大版面宣傳 ---------- */
   .sports-section {
     margin-top: 50px;
     border-top: 1px dashed rgba(244,236,216,0.3);
@@ -648,10 +636,7 @@
 <body>
 
 <header id="topnav">
-  <a class="brand" href="#hero">
-    <img src="ccuees-welcome-packet/中正地環logo.jpg" alt="Logo" class="brand-logo">
-    中正地環新生包
-  </a>
+  <a class="brand" href="#hero">中正地環新生包</a>
   <button class="menu-toggle" id="menuToggle" aria-label="開啟選單">☰</button>
   <ul id="navList">
     <li><a class="nav-link" href="#move">搬宿指南</a></li>
@@ -749,8 +734,8 @@
             <div class="course-carousel-media" id="carousel-field">
               <div class="carousel-track-container">
                 <div class="carousel-track">
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/出野外.jpg" alt="出野外1"></div>
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/出野外2.jpg" alt="出野外2"></div>
+                  <div class="carousel-slide"><img src="出野外.jpg" alt="出野外1"></div>
+                  <div class="carousel-slide"><img src="出野外2.jpg" alt="出野外2"></div>
                 </div>
               </div>
               <button class="carousel-button prev">❮</button>
@@ -767,7 +752,7 @@
         </div>
       </div>
 
-      <!-- 地震教育 4張大圖輪播系統 (對應精確正確副檔名 .jpg) -->
+      <!-- 地震教育 4張大圖輪播系統 (對應精確新檔名) -->
       <div class="course">
         <div class="tag">OUTREACH</div>
         <div>
@@ -778,10 +763,10 @@
             <div class="course-carousel-media" id="carousel-seismic">
               <div class="carousel-track-container">
                 <div class="carousel-track">
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/地震教育1.jpg" alt="地震教育1"></div>
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/地震教育2.jpg" alt="地震教育2"></div>
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/地震教育3.jpg" alt="地震教育3"></div>
-                  <div class="carousel-slide"><img src="ccuees-welcome-packet/地震教育4.jpg" alt="地震教育4"></div>
+                  <div class="carousel-slide"><img src="地震教育1.jpg" alt="地震教育1"></div>
+                  <div class="carousel-slide"><img src="地震教育2.jpg" alt="地震教育2"></div>
+                  <div class="carousel-slide"><img src="地震教育3_2.jpg" alt="地震教育3"></div>
+                  <div class="carousel-slide"><img src="地震教育4_2.jpg" alt="地震教育4"></div>
                 </div>
               </div>
               <button class="carousel-button prev">❮</button>
@@ -808,7 +793,7 @@
       <h2 class="title">繁忙之餘，我們互相照應</h2>
       <p>大一必修課程繁雜，普物、普化、微積分接踵而來，但系上學長姊握有許多資源，不管是考古題還是讀書小撇步，只要你願意來找我們，我們都很願意分享。若有不懂的地方也非常推薦去找助教與教授，他們對學生都很熱情，不用擔心自己的問題會不會很怪。</p>
       <br>
-      <p>繁雜之餘系上也有很多活動可以參與，像是系烤、系桌遊與系K，都能與同儕有良好的互動体验；也可以評估自己的時間參加系隊與社團，拓展交友範圍，順帶體驗感興趣的領域。</p>
+      <p>繁雜之餘系上也有很多活動可以參與，像是系烤、系桌遊與系K，都能與同儕有良好的互動體驗；也可以評估自己的時間參加系隊與社團，拓展交友範圍，順帶體驗感興趣的領域。</p>
     </div>
   </section>
 
@@ -823,7 +808,7 @@
             <p>擔心與系上同學沒有交集嗎？那就讓我們同一時間一起烤肉吧！大家一起比拚廚藝、一同歡唱，享受熱血的深夜時間。</p>
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 4px; margin-top: 10px; aspect-ratio: 16/10;">
-            <img style="width:100%; height:100%; object-fit:cover; display:block;" src="ccuees-welcome-packet/系烤.jpg" alt="系烤活動">
+            <img style="width:100%; height:100%; object-fit:cover; display:block;" src="系烤.jpg" alt="系烤活動">
           </div>
         </div>
         <div class="act">
@@ -832,7 +817,7 @@
             <p>星期五中午在系館外的草坪舉辦餐會與交換禮物，除了交換禮物外還能參與教授提供的特別獎，說不定你就是那幸運得主。</p>
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 4px; margin-top: 10px; aspect-ratio: 16/10;">
-            <img style="width:100%; height:100%; object-fit:cover; display:block;" src="ccuees-welcome-packet/聖誕餐會.jpg" alt="聖誕餐會活動">
+            <img style="width:100%; height:100%; object-fit:cover; display:block;" src="聖誕餐會.jpg" alt="聖誕餐會活動">
           </div>
         </div>
         <div class="act">
@@ -841,7 +826,7 @@
             <p>擁有好歌喉卻無處施展嗎？和同學比拚歌技、爭取教授與觀眾的熱情，自由歡唱時間盡情大唱大跳，沒有課業、沒有煩惱。</p>
           </div>
           <div style="width: 100%; overflow: hidden; border-radius: 4px; margin-top: 10px; aspect-ratio: 16/10;">
-            <img style="width:100%; height:100%; object-fit:cover; display:block;" src="ccuees-welcome-packet/系K.jpg" alt="系K活動">
+            <img style="width:100%; height:100%; object-fit:cover; display:block;" src="系K.jpg" alt="系K活動">
           </div>
         </div>
       </div>
@@ -856,10 +841,10 @@
 
       <div class="grid-images-2">
         <div class="grid-img-card">
-          <img src="ccuees-welcome-packet/中正大學 校區平面配置圖.jpg" alt="中正大學校區平面配置圖">
+          <img src="中正大學 校區平面配置圖.jpg" alt="中正大學校區平面配置圖">
         </div>
         <div class="grid-img-card">
-          <img src="ccuees-welcome-packet/裡學院平面圖.jpg" alt="理學院平面圖">
+          <img src="裡學院平面圖.jpg" alt="理學院平面圖">
         </div>
       </div>
 
@@ -871,7 +856,7 @@
       <div class="info-grid">
         <div class="info-card">
           <h4>🚗 開車</h4>
-          <p><strong>國道一號：</strong>民雄交流道下，往民雄方向沿民雄外環道（民新路）行駛約 1.9 公里，過民雄陸橋後左轉台一線，前行約 600 公尺，右轉大學路三段，再行駛約 4.2 公里即抵達。</p>
+          <p><strong>國道一號：</strong>民雄交流道下，往民雄方向沿民雄外環道（民新路）行駛約 1.9 公里，過民雄陸橋後左轉台一線，前行約 600 公尺，right轉大學路三段，再行駛約 4.2 公里即抵達。</p>
           <p><strong>國道三號（南下）：</strong>梅山交流道下 → 縣道 162（經大林鎮公所）→ 左轉民生路 → 左轉大民北路 → 左轉縣道 106（大學路一段），約五分鐘抵達。</p>
         </div>
         <div class="info-card">
@@ -898,11 +883,11 @@
           <p><strong>單車販售：</strong>新生入宿期間 EB1 有廠商現場販售。</p>
           <p><strong>單車認領：</strong>每年約 11 月學校會發信提醒新生至第三側門報廢物堆置場免費領取學長姐留下的舊車（維修費需自行負擔）。</p>
           <p><strong>車輛維修：</strong>每週一、四 12:00–14:00 活動中心門口有維修站；活中及宿舍區皆有快速充氣站。</p>
-          <p>校園周邊也有 YouBike 可租借（前 30 分鐘免費／補助 10元），可於活中或校門口租車。</p>
+          <p>校園周邊也有 YouBike 可租借（前 30 分鐘免費／補助 10 元），可於活中或校門口租車。</p>
         </div>
         <div class="info-card">
           <h4>⚡ 微型電動二輪車</h4>
-          <p>校內坡多，尤其宿舍區到活動中心與大門的斜坡陡峭，電動腳踏車會是省力的選擇，但價位較高、性能不及機車，可依個人需求選購。新生入宿期間 EB1 有廠商現場販售。</p>
+          <p>校內坡多，尤其宿舍區到活動中心與大門的斜坡陡峭，電動腳踏車會是省力的選擇，但價位較高、性能不及機車，可依個人需求選購。新生入宿期間 EB1 也有廠商現場販售。</p>
         </div>
         <div class="info-card">
           <h4>🛵 機車</h4>
@@ -927,7 +912,7 @@
           </div>
         </div>
         <div class="license-media">
-          <img src="ccuees-welcome-packet/車輛管理中心門口圖.jpg" alt="車輛管理中心門口">
+          <img src="車輛管理中心門口圖.jpg" alt="車輛管理中心門口">
           <span>活動中心2F車輛管理中心入口</span>
         </div>
       </div>
@@ -965,7 +950,55 @@
         <div class="info-card">
           <h4>🏋️ 體育設施</h4>
           <p><strong>室內：</strong>綜合球場、人工跑道、壁球室、保齡球館、桌球教室、體適能中心、游泳池、韻律教室、武術教室、人工攀岩壁、羽球場等。</p>
-          <p><strong>室外：</strong>高爾夫球練習場、網球場、棒球場、籃球場、排球場、壘球場、田徑場、足球場、射箭場。宿舍區 EB1 另有撞球室。多數設備免費租借，鼓勵大家多加運用。</p>
+          <p><strong>室外：</strong>高爾夫球練習場、網球場、棒球場、籃球場、排球場、壘球場、田徑場、足球場、射箭場。宿舍區 EB1 另有撞球室. 多數設備免費租借，鼓勵大家多加運用。</p>
+        </div>
+      </div>
+
+      <div class="subhead">🍽️ 飲食</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>活動中心</h4>
+          <p>一樓小吃街／學餐走經濟實惠路線，便當、麵食、披薩、焗烤、麵包、飲料一應俱全，也有現切水果餐盒。口味評價褒貶不一，但方便省時。</p>
+        </div>
+        <div class="info-card">
+          <h4>A3 生活商圈</h4>
+          <p>從活中往宿舍方向必經之地，入口處早餐店通常開到中午，現成三明治是趕上課的好選擇。</p>
+        </div>
+        <div class="info-card">
+          <h4>共同教室大樓</h4>
+          <p>大門左側有全家，正中央穿堂有基地咖啡（手沖咖啡、雞肉捲等），右側是松屋食堂，左側是食凡健康餐，方便理院學生就近用餐。</p>
+        </div>
+        <div class="info-card">
+          <h4>校外：大中小吃</h4>
+          <p>中正學生主要的飲食活動區域，美食眾多，留給你自己來探索。</p>
+        </div>
+      </div>
+
+      <div class="subhead">🖨️ 列印／影印</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>校內電算中心</h4>
+          <p>每年 50 張 A4 免費額度，超過可購買（100 張 100 元）。開放時間：平日 8:10–22:00，例假日 8:30–12:30。</p>
+        </div>
+        <div class="info-card">
+          <h4>活中眼鏡部旁中正影印部</h4>
+          <p>黑白、彩色影印，原文書太厚也可以在這裡拆書重新裝訂。</p>
+        </div>
+        <div class="info-card">
+          <h4>共同教室大樓一樓</h4>
+          <p>投幣式自助黑白影印機，一張一元。</p>
+        </div>
+        <div class="info-card">
+          <h4>圖書館二樓</h4>
+          <p>設有影印室，可影印、掃描，僅能使用悠遊卡付款，操作稍複雜。</p>
+        </div>
+        <div class="info-card">
+          <h4>地環系系辦</h4>
+          <p>上課臨時要印文件可以來系辦，使用者付費（投錢到奶粉罐），黑白一張一元、彩色一張六元，記得對姐姐有禮貌。</p>
+        </div>
+        <div class="info-card">
+          <h4>校外</h4>
+          <p>大吃及中吃附近都有影印店，價格比校內便宜，大量影印另有優惠。</p>
         </div>
       </div>
     </div>
@@ -975,16 +1008,67 @@
     <div class="band-inner">
       <div class="eyebrow">學業</div>
       <h2 class="title">課業學分</h2>
-      <p class="lead">修業規定、通識課程與配置架構。</p>
+      <p class="lead">修業規定、通識課程與獎學金資訊整理。</p>
 
       <div class="subhead">❖ 修業流程圖</div>
-      <div class="full-image-card"><img src="ccuees-welcome-packet/地環系修業流程圖.jpg" alt="地環系修業流程圖"></div>
+      <div class="flow-links">
+        <a class="doc-btn btn-slate" href="https://eq.ccu.edu.tw/var/file/70/1070/img/685/273275176.pdf" target="_blank" rel="noopener">修業規定 PDF ↗</a>
+        <a class="doc-btn btn-slate" href="https://eq.ccu.edu.tw/var/file/70/1070/img/690/481441262.pdf" target="_blank" rel="noopener">修業流程圖 PDF ↗</a>
+      </div>
+      <div class="full-image-card"><img src="地環系修業流程圖.jpg" alt="地環系修業流程圖"></div>
 
-      <div class="subhead">❖ 通識課程修課架構</div>
-      <div class="full-image-card"><img src="ccuees-welcome-packet/通識修課規定.jpg" alt="通識修課規定架構"></div>
+      <div class="subhead">❖ 通識課程</div>
+      <p style="margin-bottom:20px; opacity:0.85; font-size:0.98rem;">通識課程分為「基礎通識」與「博雅通識」兩大類，讓每位大學生學習本科系以外的多元知識。<strong>本校所有學院學生均應滿足通識課程至少 28 學分</strong>。</p>
+      
+      <!-- 博雅通識 -->
+      <div class="split-layout reverse">
+        <div class="split-media">
+          <img src="通識修課規定.jpg" alt="通識修課規定">
+        </div>
+        <div class="split-text">
+          <div class="qa" style="border-top:none; padding-top:0;">
+            <div class="q">A. 博雅通識</div>
+            <div class="a">
+              分為六個向度：（1）藝術與美學（2）能源、環境與生態（3）人文思維與生命探索（4）公民與社會參與（5）經濟與國際脈動（6）自然科學與技術。向度 1～5 每向度至少修習一門；跨向度課程「中正講座」可抵免任一向度、以一門為限；超修的通識學分不列入畢業學分計算。
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <div class="subhead">❖ 英文抵免門檻</div>
-      <div class="full-image-card"><img src="ccuees-welcome-packet/英文抵免門檻.png" alt="英文抵免門檻對照表"></div>
+      <!-- 基礎通識 -->
+      <div class="split-layout">
+        <div class="split-text">
+          <div class="qa" style="border-top:none; padding-top:0;">
+            <div class="q">B. 基礎通識</div>
+            <div class="a">
+              含「中英文能力課程」、「資訊能力課程」、「基礎能力課程」。中英文能力須修滿二門「英語技巧」與二門「中文閱讀與生命書寫」（至多採計 8 學分）；英文課程需經語言中心分級後於上下學期各修一門，通過相關英檢可抵免；資訊能力課程至少需修習一門，大二程式設計課程可抵通識要求（但學分仍計入必修）。第一學期英文分班由系統自動安排，之後的通識英文選課參照通識國文流程。
+            </div>
+          </div>
+        </div>
+        <div class="split-media">
+          <img src="英文抵免門檻.png" alt="英文抵免門檻">
+        </div>
+      </div>
+
+      <div class="subhead">❖ 社會實踐</div>
+      <p style="margin-bottom:10px; opacity:0.85; font-size:0.98rem;">中正大學服務學習課程已更改為社會實踐課程，學士班學生皆須修習經課程委員會認證之社會實踐課程，以及場域實踐 6 至 10 小時。</p>
+
+      <div class="subhead">❖ 獎學金</div>
+      <div class="qa">
+        <div class="q">本校校長獎</div>
+        <div class="a">
+          <strong>新生獎學金：</strong>入學考試以本校為前三志願且成績名列全班前三名者，或推薦甄選／申請入學經系所擇優推薦者，一年級上學期免繳全額學雜費並頒發獎狀；若上學期成績達班上前 20%，下學期可再免繳學雜費（但不得同時請領優秀學生獎學金）。<br><br>
+          <strong>優秀學生獎學金：</strong>每班二名，須合乎最低修業學分規定且無不及格科目，由各學系推薦，獎金兩萬元及獎狀乙幀。
+        </div>
+      </div>
+      <div class="qa">
+        <div class="q">地球物理獎學金</div>
+        <div class="a">大三、大四學生已修習地球物理或相關學科四學分以上，前學年學業成績均及格且總平均 75 分（含）以上，地球物理相關最佳兩學科 or 四學分以上平均 75 分（含）以上，操行甲等且未領取其他獎學金者，每學年獎金兩萬元。</div>
+      </div>
+      <div class="qa">
+        <div class="q">教育部獎助金</div>
+        <div class="a">依每年分配額度而異，一般獎學金每人每月約四千元，助學金每人每月約兩千元。</div>
+      </div>
     </div>
   </section>
 
@@ -992,19 +1076,188 @@
     <div class="band-inner">
       <div class="eyebrow">住宿</div>
       <h2 class="title">宿舍問題集</h2>
-      <p class="lead">內部公共空間到細部尺寸測量數據。</p>
+      <p class="lead">申請、房號、公設到行前檢查表，關於宿舍的一切。</p>
 
-      <div class="subhead">❖ 宿舍內部平面配置圖</div>
-      <div class="full-image-card"><img src="ccuees-welcome-packet/宿舍平面圖.jpg" alt="宿舍平面圖"></div>
+      <div class="flow-links">
+        <a class="doc-btn btn-slate" href="https://studentlife.ccu.edu.tw/p/404-1034-19851.php?Lang=zh-tw" target="_blank" rel="noopener">住宿申請 ↗</a>
+        <a class="doc-btn btn-slate" href="https://www.dorm.ccu.edu.tw" target="_blank" rel="noopener">宿網申請 ↗</a>
+      </div>
 
-      <div class="subhead">❖ 房間設施精確尺寸數據</div>
-      <div class="grid-images-2">
-        <div class="grid-img-card">
-          <img src="ccuees-welcome-packet/房間設施大小(新).png" alt="房間設施大小新版">
+      <div class="subhead">📝 行前檢查表 ＆ 貼心小叮嚀</div>
+      <a class="doc-btn btn-clay" href="https://docs.google.com/document/d/1ooTluXZuvXzSE-St1xgkwAb3fOPMeHrrcIsHhqqXfnI/edit?tab=t.0" target="_blank" rel="noopener">
+        行前檢查表 ↗
+      </a>
+
+      <div class="checklist-table-container">
+        <table class="checklist-table">
+          <thead>
+            <tr>
+              <th class="no-wrap-short">檢查欄</th>
+              <th class="no-wrap-short">攜帶物品</th>
+              <th>備註（學校/宿舍有提供之設備、不需攜帶之物品、尺寸說明、貼心小提醒）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">床墊</td>
+              <td>建議買三折式的，方便搬運與收納。
+                  高度不要太高（建議 10-12 公分以內），以免床邊護欄失去保護功能。<br>
+                  規格 ➔ 寬度：90 * 長度：186（公分）（為標準單人 3 尺床，非單人加大床面喔！）
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">枕頭、棉被</td>
+              <td>依個人習慣攜帶。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">床包 / 床單</td>
+              <td>依個人習慣攜帶。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">盥洗用品</td>
+              <td>洗髮乳、沐浴乳、洗面乳、牙刷、牙膏、毛巾（數條）、浴巾。<br>
+                  建議備妥盥洗提籃，方便提至浴室。
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">洗衣用品</td>
+              <td>洗衣精 / 洗衣膠球（洗衣粉不易溶解不推薦）、洗衣籃、晾衣架（數個）、曬衣夾。<br>
+                  ※ 宿舍一樓附設投幣式洗衣機與烘衣機（洗衣每次 20 元，烘衣每 10 元 30 分鐘）。
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">日常用品</td>
+              <td>衛生紙、抹布、小型掃把與畚箕（打掃寢室用）、指甲剪、掏耳棒、棉花棒。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">拖鞋</td>
+              <td>建議帶兩雙（一雙室內拖、一雙浴室專用防滑拖鞋）。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">衣物</td>
+              <td>日常換洗衣物、貼身衣物（建議一週份）、薄外套（南部室內冷氣強）。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">餐具</td>
+              <td>碗、筷、杯子、洗碗精、菜瓜布、環保吸管（方便在寢室吃宵夜）。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">常備藥品</td>
+              <td>感冒藥、止痛藥、退燒藥、防蚊液、OK 繃、小林退熱貼、腸胃藥、個人慢性藥品。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">文具用品</td>
+              <td>工程計算機、筆、筆記本。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">3C 電器</td>
+              <td>筆記型電腦與充電線、延長線（必須有合格檢驗標章與過載斷電保護裝置，非常實用）、手機與充電線、行動電源、耳機。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">小電器</td>
+              <td>吹風機、檯燈（桌子上方雖有日光燈，但背對常有陰影，建議自備檯燈）。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">雨具</td>
+              <td>雨傘、雨衣（南部常有午後雷陣雨、或是騎車必備）。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">重要證件</td>
+              <td>身分證、學生證（若已發放）、健保卡、駕照（若有騎車需求）、銀行 / 郵局帳戶影本。</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td class="no-wrap-short">個人資金</td>
+              <td>少許現金（校內可用行動支付或悠遊卡，但民雄市區大多只收現金）。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="full-image-card"><img src="宿舍平面圖_2.jpg" alt="宿舍平面圖"></div>
+
+      <div class="qa">
+        <div class="q">➢ 房號大解密</div>
+        <div class="a">
+          男宿：A、E 棟；女宿：C、D 棟。B 棟為健康宿舍（1～4 樓女宿、5～9 樓男宿）。各棟十樓有自修室，每樓有交誼廳及兩台飲水機，偶數層有脫水機。<br><br>
+          寢室編號皆為四碼：第一碼為棟別（A～E 對應 1～5），第二碼為樓層，最後二碼為房間編號，末端英文為床位代號。例如「1111A」表示 A 棟 1 樓 11 號房 A 床。
         </div>
-        <div class="grid-img-card">
-          <img src="ccuees-welcome-packet/房間設施大小(舊).png" alt="房間設施大小舊版">
+      </div>
+
+      <div class="qa">
+        <div class="q">➢ 公共設施大不同</div>
+        <div class="a">
+          <strong>A 棟：</strong>A B1 大交誼廳、學生會辦公室、洗衣部（男）、垃圾場。<br>
+          <strong>B 棟：</strong>腳踏車停車場。<br>
+          <strong>C 棟：</strong>宿舍管理服務台、C B1 大交誼廳、宿舍網路辦公室、洗衣部（女）、腳踏車停車場、垃圾子車。<br>
+          <strong>D 棟：</strong>腳踏車停車場。<br>
+          <strong>E 棟：</strong>EB1 餐飲部、撞球部、洗衣部（男、女）、汽車地下停車場、腳踏車停車場。
         </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">➢ 網路申請</div>
+        <div class="a">詳細內容於國立中正大學宿舍網路資訊網申請後，請至資訊處繳費。</div>
+      </div>
+
+      <div class="qa">
+        <div class="q">➢ 宿管中心</div>
+        <div class="a">
+          位於 C 棟一樓，業務含包裹代收、臨時鑰匙借用、器材借用、緊急醫療協助、場地借用、宿舍網路辦公室、各項住宿相關申請文件。<br><br>
+          <strong>宿舍管制：</strong>無門禁時間，不用擔心回不了宿舍。22:00～06:00 憑學生證刷卡進出各棟大門；18:00～22:00 異性互訪需登記，著識別背心可訪問異性寢室。
+        </div>
+      </div>
+
+      <div class="qa">
+        <div class="q">➢ 宿舍內部</div>
+        <div class="a">
+          每寢皆有平面床位四床（90×186cm）、乾溼分離式衛浴、24hr 熱水、冷氣、L 型書桌暨電腦桌、衣櫃、陽台，各寢格局大同小異。
+          
+          <div class="grid-images-2">
+            <div class="grid-img-card">
+              <img src="房間設施大小(新)_2.jpg" alt="房間設施大小(新)">
+            </div>
+            <div class="grid-img-card">
+              <img src="房間設施大小(舊)_2.jpg" alt="房間設施大小(舊)">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subhead">行前檢查表 ＆ 貼心小叮嚀</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <p>入宿的生活用品因人而異，打造一個自己最舒適的行李，展開豐富的大學生活吧！</p>
+        </div>
+        <div class="info-card">
+          <p>臨近宿舍的員生社什麼都賣，忘記帶或想讓行李輕一點，到那邊逛逛就對了。</p>
+        </div>
+        <div class="info-card">
+          <p>身為理學院的一員，工程計算機是必備工具，可自行攜帶或到麗文書局購買。</p>
+        </div>
+      </div>
+
+      <div class="subhead">➢ 住宿經驗談</div>
+      <div class="info-grid">
+        <div class="info-card"><p>可以自備眼罩及耳塞，適應室友不同的作息。</p></div>
+        <div class="info-card"><p>不想三餐外食，可和室友合買一台小冰箱，宿舍電費非常便宜，也能存放鮮食。</p></div>
+        <div class="info-card"><p>可依需求攜帶小型快煮鍋，煮麵、煮水餃都方便，但瓦數不要太高以免跳電。</p></div>
+        <div class="info-card"><p>腳踏車建議停在活動中心，每天走到活中再騎車上課，好漢坡不建議騎車上去。</p></div>
       </div>
     </div>
   </section>
@@ -1013,36 +1266,110 @@
     <div class="band-inner">
       <div class="eyebrow" style="color:var(--limestone)">課外活動</div>
       <h2 class="title" style="color:var(--limestone)">社團與系隊介紹</h2>
-      <p class="lead" style="color:var(--limestone); opacity:0.85">豐富的大學課外生活，從加入系隊開始！</p>
+      <p class="lead" style="color:var(--limestone); opacity:0.85">全校社團琳瑯滿目，依興趣挑一個開始你的大學課外生活吧！</p>
+      
+      <div class="flow-links" style="margin-bottom:40px;">
+        <a class="doc-btn btn-moss" href="https://extra.ccu.edu.tw/p/404-1035-5862.php?Lang=zh-tw" target="_blank" rel="noopener">課外活動組—社團資訊 ↗</a>
+      </div>
 
+      <div class="chip-group">
+        <h4>❖ 學術性</h4>
+        <div class="chips">
+          <span class="chip">光鹽社</span><span class="chip">辯言社</span><span class="chip">天文社</span><span class="chip">書法研究社</span><span class="chip">法輪大法社</span><span class="chip">領袖社</span><span class="chip">生命活泉社</span><span class="chip">喜信社</span><span class="chip">紫荊圍棋社</span><span class="chip">福智青年社</span><span class="chip">紫荊茶藝社</span><span class="chip">證券研習社</span><span class="chip">創新創業社</span><span class="chip">AIESEC</span><span class="chip">仁風社</span><span class="chip">公共事務研習社</span><span class="chip">鳳梨田橋牌社</span><span class="chip">跨域人才培育社</span><span class="chip">戀財研究社</span><span class="chip">CCU iGEM研究社</span><span class="chip">經絡按摩社</span><span class="chip">中智佛學社</span>
+        </div>
+      </div>
+
+      <div class="chip-group">
+        <h4>❖ 體育性</h4>
+        <div class="chips">
+          <span class="chip">嵐星登山社</span><span class="chip">瓶蓋棒球社</span><span class="chip">水上活動社</span><span class="chip">國術社</span><span class="chip">空手道社</span><span class="chip">自由搏擊社</span><span class="chip">網球社</span><span class="chip">瑜珈社</span><span class="chip">滑板社</span><span class="chip">鳳梨魔鬼軟式棒球社</span><span class="chip">板球社</span><span class="chip">單車社</span>
+        </div>
+      </div>
+
+      <div class="chip-group">
+        <h4>❖ 聯誼性</h4>
+        <div class="chips">
+          <span class="chip">南友會</span><span class="chip">中友會</span><span class="chip">僑生聯誼會</span><span class="chip">雄友會</span><span class="chip">桃園聯合會</span><span class="chip">轉學生聯誼會</span><span class="chip">雲嘉校友會</span><span class="chip">花蓮校友會</span><span class="chip">中正印度同學會</span>
+        </div>
+      </div>
+
+      <div class="chip-group">
+        <h4>❖ 康樂性</h4>
+        <div class="chips">
+          <span class="chip">熱舞社</span><span class="chip">魔術社</span><span class="chip">嘻哈文化研究社</span><span class="chip">中正喜劇社</span><span class="chip">韓國文化研究社</span><span class="chip">日本麻雀研究社</span><span class="chip">原住民文化傳承社</span><span class="chip">集換式卡牌遊戲研究社</span>
+        </div>
+      </div>
+
+      <div class="chip-group">
+        <h4>❖ 服務性</h4>
+        <div class="chips">
+          <span class="chip">十字軍急救服務社</span><span class="chip">國際志工社</span><span class="chip">臨界點工作室</span><span class="chip">寶貝生命社</span><span class="chip">崇德青年志工社</span><span class="chip">法律服務社</span><span class="chip">穫米亞亞阿里山社區工作社</span><span class="chip">4Q志工社</span>
+        </div>
+      </div>
+
+      <div class="chip-group">
+        <h4>❖ 音樂性</h4>
+        <div class="chips">
+          <span class="chip">織音合唱團</span><span class="chip">Feelings 吉他社</span><span class="chip">東籬國樂社</span><span class="chip">雲想箏樂社</span><span class="chip">管弦樂社</span><span class="chip">打擊樂社</span><span class="chip">熱門音樂社</span><span class="chip">鋼琴社</span><span class="chip">爵士樂社</span><span class="chip">阿卡貝拉社</span>
+        </div>
+      </div>
+
+      <div class="chip-group">
+        <h4>❖ 藝術性</h4>
+        <div class="chips">
+          <span class="chip">攝影社</span><span class="chip">美術社</span><span class="chip">動畫暨漫畫研習社</span><span class="chip">遊戲社</span><span class="chip">美麗研究社</span><span class="chip">模型研究社</span><span class="chip">表演藝術社(夜貓劇團)</span><span class="chip">火舞藝術社</span><span class="chip">貳零壹玖電影社</span>
+        </div>
+      </div>
+
+      <!-- 地環系專屬運動系隊 -->
       <div class="sports-section">
-        <h3 style="color:var(--sand); font-size:1.6rem; margin-bottom:20px;">❖ 地環系專屬運動系隊海報宣傳</h3>
+        <h3 style="color:var(--sand); font-size:1.6rem; margin-bottom:20px;">❖ 地環系專屬運動系隊</h3>
+        
+        <h4 style="color:var(--sand); font-size:1.25rem; margin-bottom:18px;">💡 系隊宣傳海報</h4>
         
         <div class="poster-grid-2x2">
           <div class="poster-card">
-            <img src="ccuees-welcome-packet/地通女排.jpg" alt="地通女排">
+            <img src="地通女排_2.jpg" alt="地通女排">
             <span>地通女排</span>
           </div>
           <div class="poster-card">
-            <img src="ccuees-welcome-packet/地環男排.jpg" alt="地環男排">
+            <img src="地環男排_2.jpg" alt="地環男排">
             <span>地環男排</span>
           </div>
           <div class="poster-card">
-            <img src="ccuees-welcome-packet/地環系羽.jpg" alt="地環系羽">
+            <img src="地環系羽_2.jpg" alt="地環系羽">
             <span>地環系羽</span>
           </div>
           <div class="poster-card">
-            <img src="ccuees-welcome-packet/理工女籃.jpeg" alt="理工女籃">
+            <img src="理工女籃_2.jpg" alt="理工女籃">
             <span>理工女籃</span>
           </div>
         </div>
+
+        <div class="text-only-sports">
+          <h4 style="color:var(--sand); font-size:1.15rem; margin-bottom:14px;">❖ 其他運動系隊</h4>
+          <div class="sports-card-grid">
+            <div class="sport-card">
+              <h4>系壘</h4>
+              <p><strong>練球時間：</strong>每週二三下午 4:40 - 天黑</p>
+              <p><strong>地點：</strong>棒球場</p>
+            </div>
+            <div class="sport-card">
+              <h4>系籃</h4>
+              <p><strong>練球時間：</strong>一週會根據大家的時間挑一天練球</p>
+              <p><strong>比賽：</strong>新生盃，聯盟賽，大地盃，系際盃</p>
+              <p style="font-size: 0.82rem; opacity: 0.7; margin-top: 4px;">歡迎喜歡籃球的同學加入地環系籃。</p>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
   <footer data-name="結語">
     <h2>迎向更完美的大學生活</h2>
-    <p>希望這份新生包能讓你更理解地環系的生活。若有任何疑問，歡迎私訊系學會！</p>
+    <p>希望這份新生包能讓你更理解地環系的生活，也期待系上可以豐富你的未來。若有任何疑問，都歡迎私訊我們，讓我們為你排憂解難！</p>
     <div class="stamp">NCCU EES WELCOME PACKET · CORE SAMPLE COMPLETE · 120.0m</div>
   </footer>
 
@@ -1056,6 +1383,7 @@
     a.addEventListener('click', ()=> navList.classList.remove('open'));
   });
 
+  /* ---------- 精確內嵌式圖片輪播邏輯（確保自動切換） ---------- */
   function initializeCourseCarousel(id) {
     const container = document.getElementById(id);
     if (!container) return;
@@ -1069,8 +1397,7 @@
     let timer = null;
 
     function move() {
-      const width = container.querySelector('.carousel-track-container').offsetWidth;
-      track.style.transform = `translateX(-${currentIndex * width}px)`;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
       indicators.forEach((ind, i) => ind.classList.toggle('active', i === currentIndex));
     }
 
@@ -1104,15 +1431,31 @@
       });
     });
 
+    let startX = 0;
+    container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      stop();
+    }, {passive: true});
+
+    container.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      if (Math.abs(startX - endX) > 40) {
+        if (startX > endX) next();
+        else prev();
+      }
+      start();
+    }, {passive: true});
+
     start();
-    window.addEventListener('resize', move);
   }
 
+  // 確保網頁載入後立即啟用自動輪轉
   window.addEventListener('DOMContentLoaded', () => {
     initializeCourseCarousel('carousel-field');
     initializeCourseCarousel('carousel-seismic');
   });
 
+  // 地剖面導覽條驅動
   const sections = Array.from(document.querySelectorAll('main > section'));
   const ticksEl = document.getElementById('ticks');
   const depths = sections.map((s,i)=> (i / (sections.length-1) * 120).toFixed(1));
