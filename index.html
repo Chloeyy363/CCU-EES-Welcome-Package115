@@ -667,7 +667,7 @@
 </header>
 
 <nav id="core">
-  <div class="core-label">CORE SAMPLE ／ 地環新生包</div>
+  <div class="core-label">CORE DEPTH ／ 地環新生包</div>
   <div class="ticks" id="ticks"></div>
 </nav>
 
@@ -1496,12 +1496,17 @@
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       const idx = sections.indexOf(entry.target);
-      if(entry.isIntersecting){
+      // 當該區域在畫面中佔比大於 15% 時才觸發亮燈
+      if(entry.isIntersecting && entry.intersectionRatio > 0.15){
         ticks.forEach(t=>t.classList.remove('active'));
         ticks[idx].classList.add('active');
       }
     });
-  }, {threshold:0.3});
+  }, {
+    // 💡 修正關鍵：限制滾動偵測的觸發範圍主要在畫面中上段，解決卡住停留的問題
+    rootMargin: "-20% 0px -40% 0px",
+    threshold: [0, 0.15, 0.3]
+  });
   sections.forEach(s=>io.observe(s));
 </script>
 
