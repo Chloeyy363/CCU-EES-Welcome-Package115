@@ -1496,17 +1496,12 @@
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       const idx = sections.indexOf(entry.target);
-      // 當該區域在畫面中佔比大於 15% 時才觸發亮燈
-      if(entry.isIntersecting && entry.intersectionRatio > 0.15){
+      if(entry.isIntersecting){
         ticks.forEach(t=>t.classList.remove('active'));
         ticks[idx].classList.add('active');
       }
     });
-  }, {
-    // 💡 修正關鍵：限制滾動偵測的觸發範圍主要在畫面中上段，解決卡住停留的問題
-    rootMargin: "-20% 0px -40% 0px",
-    threshold: [0, 0.15, 0.3]
-  });
+  }, {threshold:0.3});
   sections.forEach(s=>io.observe(s));
 </script>
 
