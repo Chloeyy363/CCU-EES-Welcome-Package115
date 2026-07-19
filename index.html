@@ -640,8 +640,22 @@
   /* footer */
   footer{background:var(--basalt); color:var(--sand); padding:70px 8vw 40px; text-align:center;}
   footer h2{color:var(--limestone); font-size:1.7rem; margin-bottom:16px;}
-  footer p{opacity:0.75; max-width:50ch; margin:0 auto 30px;}
+  footer p{opacity:0.75; max-width:50ch; margin:0 auto 20px;}
   footer .stamp{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em; opacity:0.4; margin-top:50px;}
+
+  /* 💡 封底精緻小圖樣式 💡 */
+  .footer-mini-pic {
+    max-width: 260px;
+    margin: 25px auto 10px;
+    text-align: center;
+    opacity: 0.9;
+  }
+  .footer-mini-pic img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
 </style>
 </head>
 <body>
@@ -879,9 +893,9 @@
       <div class="info-grid">
         <div class="info-card">
           <h4>🚗 開車</h4>
-          <p><strong>國道一號：</strong>由民雄交流道下，往民雄方向沿著民雄外環道（民新路）前行約 1.9 公里，過民雄陸橋後 左轉進入省道台一線，前行約 600 公尺，right轉入大學路三段後，沿著大學路往前行駛 約 4.2 公里即可抵達本校[cite: 1]。
+          <p><strong>國道一號：</strong>由民雄交流道下，往民雄方向沿著民雄外環道（民新路）前行約 1.9 公里，過民雄陸橋後 左轉進入省道台一線，前行約 600 公尺，右轉入大學路三段後，沿著大學路往前行駛 約 4.2 公里即可抵達本校[cite: 1]。
 </p>
-          <p><strong>國道三號（南下）：</strong>梅山交流道下→縣道 162（經過大林鎮公所）→left轉往民生路→往前行駛左轉大民北路→ 左轉到縣道 106（大學路一段）→再行駛五分鐘即抵達本校[cite: 1]。</p>
+          <p><strong>國道三號（南下）：</strong>梅山交流道下→縣道 162（經過大林鎮公所）→左轉往民生路→往前行駛左轉大民北路→ 左轉到縣道 106（大學路一段）→再行駛五分鐘即抵達本校[cite: 1]。</p>
         </div>
         <div class="info-card">
           <h4>🚂 火車</h4>
@@ -1204,7 +1218,7 @@
             <tr>
               <td class="no-wrap-short"><input type="checkbox"></td>
               <td class="no-wrap-short">日常用品</td>
-              <td>衛生紙、抹布、小型掃把與畚箕（打打包寢室用）、指甲剪、牙線、棉花棒[cite: 1]。</td>
+              <td>衛生紙、抹布、小型掃把與畚箕（打掃寢室用）、指甲剪、牙線、棉花棒[cite: 1]。</td>
             </tr>
             <tr>
               <td class="no-wrap-short"><input type="checkbox"></td>
@@ -1387,15 +1401,16 @@
     </div>
   </section>
 
-  <!-- 💡 核心修正：在綠色區塊與頁尾之間，加上滿寬的封底圖片 💡 -->
-  <div class="full-image-card" style="max-width: 920px; margin: 40px auto 0; padding: 0 8vw;">
-    <img src="ccuees-welcome-packet/封底.png" alt="封底圖片" style="width: 100%; height: auto; border-radius: 6px;">
-  </div>
-
   <footer data-name="結語">
     <h2>迎向更完美的大學生活</h2>
     <p>希望這份新生包能讓你更理解地環系的生活，也期待系上可以豐富你的未來[cite: 1]。若有任何疑問，都歡迎私訊我們，讓我們為你排憂解難[cite: 1]！</p>
-    <div class="stamp">CCU EES WELCOME PACKET · CORE SAMPLE COMPLETE · 120.0m</div>
+    
+    <!-- 💡 核心修正：將封底圖片放在文字下方（紅框位置），並修改 class 為精緻置中小圖 💡 -->
+    <div class="footer-mini-pic">
+      <img src="ccuees-welcome-packet/封底.png" alt="封底">
+    </div>
+
+    <div class="stamp">NCCU EES WELCOME PACKET · CORE SAMPLE COMPLETE · 120.0m</div>
   </footer>
 
 </main>
@@ -1480,8 +1495,8 @@
     initializeCourseCarousel('carousel-seismic');
   });
 
-  // 地剖面導覽條驅動
-  const sections = Array.from(document.querySelectorAll('main > section'));
+  // 地剖面導覽條建置
+  const sections = Array.from(document.querySelectorAll('main > section, main > footer'));
   const ticksEl = document.getElementById('ticks');
   const depths = sections.map((s,i)=> (i / (sections.length-1) * 120).toFixed(1));
 
@@ -1489,26 +1504,39 @@
     const tick = document.createElement('div');
     tick.className = 'tick';
     tick.style.top = (i/(sections.length-1)*100) + '%';
-    tick.innerHTML = `<div class="dot"></div><div class="depth">${depths[i]}m · ${s.dataset.name}</div>`;
+    tick.innerHTML = `<div class="dot"></div><div class="depth">${depths[i]}m · ${s.dataset.name || '結語'}</div>`;
     tick.addEventListener('click', ()=> s.scrollIntoView({behavior:'smooth'}));
     ticksEl.appendChild(tick);
   });
 
-  // 💡 修正關鍵：限制滾動偵測的觸發範圍主要在畫面中上段，解決卡住停留的問題 💡
+  // 💡 核心修正：拋棄 IntersectionObserver，改用靈敏的 Window Scroll 座標監聽 💡
+  // 完美解決因為區塊長度不均（尤其結語很短）造成的 60m 或是前一區塊亮點卡住不放的問題
   const ticks = Array.from(ticksEl.children);
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      const idx = sections.indexOf(entry.target);
-      if(entry.isIntersecting && entry.intersectionRatio > 0.15){
-        ticks.forEach(t=>t.classList.remove('active'));
-        ticks[idx].classList.add('active');
+  
+  function updateActiveTick() {
+    const scrollPosition = window.scrollY + (window.innerHeight / 3); // 偵測水平線在畫面中上段
+    let activeIndex = 0;
+
+    // 檢查已經滑過哪一個區塊的頂端
+    for (let i = 0; i < sections.length; i++) {
+      if (scrollPosition >= sections[i].offsetTop) {
+        activeIndex = i;
       }
+    }
+
+    // 當網頁完全滑到底部時，強制亮最後一盞燈（結語）
+    if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 10) {
+      activeIndex = sections.length - 1;
+    }
+
+    ticks.forEach((t, i) => {
+      t.classList.toggle('active', i === activeIndex);
     });
-  }, {
-    rootMargin: "-20% 0px -40% 0px",
-    threshold: [0, 0.15, 0.3]
-  });
-  sections.forEach(s=>io.observe(s));
+  }
+
+  window.addEventListener('scroll', updateActiveTick);
+  window.addEventListener('resize', updateActiveTick);
+  window.addEventListener('DOMContentLoaded', updateActiveTick);
 </script>
 
 </body>
