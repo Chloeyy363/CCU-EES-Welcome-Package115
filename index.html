@@ -357,39 +357,6 @@
     display: block;
   }
 
-  /* 💡 核心修正：將新舊設施完美融合成單張卡片、單張圖的 CSS 網格邏輯 💡 */
-  .merged-single-image-card {
-    position: relative;
-    background: rgba(36,31,26,0.03);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 8px;
-    margin: 18px 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 切分成左右兩欄 */
-    gap: 8px;
-  }
-  .merged-single-image-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-  }
-/* 💡 核心修正：將新舊設施完美融合成單張卡片、單張圖的 CSS 網格邏輯 💡 */
-  .merged-single-image-card {
-    position: relative;
-    background: rgba(36,31,26,0.03);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    padding: 8px;
-    margin: 18px 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 切分成左右兩欄 */
-    gap: 0; /* 👈 把原本的 8px 改成 0，左右兩張圖就會完全黏在一起不留空隙 */
-  }
-
   /* ---------- 車證辦理：左右分欄版面 ---------- */
   .license-layout {
     display: flex;
@@ -619,12 +586,13 @@
     box-shadow: 0 16px 35px rgba(0,0,0,0.35);
     border-color: rgba(244,236,216,0.5);
   }
+  /* 💡 核心修正：取消海報固定比例裁切，改為純比例完整顯示 💡 */
   .poster-card img {
     width: 100%;
     height: auto;
     border-radius: 4px;
-    aspect-ratio: 3/4;
-    object-fit: cover;
+    aspect-ratio: auto;
+    object-fit: contain;
   }
   .poster-card span {
     display: block;
@@ -937,7 +905,7 @@
         </div>
         <div class="info-card">
           <h4>🛵 機車</h4>
-          <p>校園內禁止行駛機車，但要前往生活機能較佳的民雄市區（買晚餐、全聯採買、外出）時會方便許多，請務必注意行車安全。</p>
+          <p>開學後若有機車，要前往生活機能較佳的民雄市區（買晚餐、全聯採買、外出）時會方便許多，請務必注意行車安全。</p>
         </div>
         <div class="info-card">
           <h4>🚗 汽車</h4>
@@ -1064,7 +1032,7 @@
       <div class="full-image-card"><img src="ccuees-welcome-packet/地環系修業流程圖.jpg" alt="地環系修業流程圖"></div>
 
       <div class="subhead">❖ 通識課程</div>
-      <p style="margin-bottom:20px; opacity:0.85; font-size:0.98rem;">通識課程分為「基礎通識」與「博雅通識」兩大類，讓每位大學生學習本科系以外的多元知識。<strong>本校所有學院學生均應滿足通識課程至少 28 學分</strong>。</p>
+      <p style="margin-bottom:20px; opacity:0.85; font-size:0.98rem;">通識課程分為「基礎通識」與「博雅通識']兩大類，讓每位大學生學習本科系以外的多元知識。<strong>本校所有學院學生均應滿足通識課程至少 28 學分</strong>。</p>
       
       <!-- 博雅通識 -->
       <div class="split-layout reverse">
@@ -1166,7 +1134,7 @@
               <td><input type="checkbox"></td>
               <td class="no-wrap-short">盥洗用品</td>
               <td>洗髮乳、沐浴乳、洗面乳、牙刷、牙膏、毛巾（數條）、浴巾。<br>
-                  建議備妥盥洗提籃，方便提至浴室。
+                  開學前備妥盥洗提籃，方便提至浴室。
               </td>
             </tr>
             <tr>
@@ -1274,10 +1242,9 @@
         <div class="a">
           每寢皆有平面床位四床（90×186cm）、乾溼分離式衛浴、24hr 熱水、冷氣、L 型書桌暨電腦桌、衣櫃、陽台，各寢格局大同小異。
           
-          <!-- 💡 修正：直接在同一個外框（merged-single-image-card）中合併成一張大圖卡 💡 -->
-          <div class="merged-single-image-card" id="mergedFacilityContainer">
-            <img src="ccuees-welcome-packet/房間設施大小(舊).png" alt="房間設施大小(舊)" id="oldImg">
-            <img src="ccuees-welcome-packet/房間設施大小(新).png" alt="房間設施大小(新)" class="new-img-fluid" id="newImg">
+          <!-- 💡 核心修正：換成您自己拼好圖、重新上傳的單張滿寬圖卡 💡 -->
+          <div class="full-image-card">
+            <img src="ccuees-welcome-packet/房間設施大小.png" alt="房間設施大小">
           </div>
         </div>
       </div>
@@ -1496,21 +1463,6 @@
   window.addEventListener('DOMContentLoaded', () => {
     initializeCourseCarousel('carousel-field');
     initializeCourseCarousel('carousel-seismic');
-    
-    /* 💡 動態高度同步：讓右邊的新圖最大高度完美卡在左邊舊圖的高度線，融合為一張大圖卡 💡 */
-    const oldImg = document.getElementById('oldImg');
-    const newImg = document.getElementById('newImg');
-    
-    function matchHeight() {
-      if (window.innerWidth > 640 && oldImg.clientHeight > 0) {
-        newImg.style.height = oldImg.clientHeight + 'px';
-      } else {
-        newImg.style.height = 'auto';
-      }
-    }
-    if (oldImg.complete) { matchHeight(); }
-    oldImg.addEventListener('load', matchHeight);
-    window.addEventListener('resize', matchHeight);
   });
 
   // 地剖面導覽條驅動
