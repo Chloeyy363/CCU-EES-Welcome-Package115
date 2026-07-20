@@ -497,8 +497,13 @@
   .chip{
     font-size:0.85rem; padding:6px 13px; border-radius:100px;
     background:rgba(63,93,69,0.08); border:1px solid rgba(63,93,69,0.25);
+    text-decoration: none; display: inline-block; transition: all 0.2s ease;
+  }
+  .chip:hover{
+    background: rgba(63,93,69,0.2); border-color: rgba(63,93,69,0.5); transform: translateY(-1px);
   }
   #clubs .chip{background:rgba(255,255,255,0.08); border-color:rgba(244,236,216,0.3); color:var(--sand);}
+  #clubs .chip:hover{background:rgba(255,255,255,0.18); border-color:rgba(244,236,216,0.6); color:var(--limestone);}
 
   /* 單張滿寬圖卡 */
   .full-image-card {
@@ -1124,7 +1129,7 @@
         <div class="q">➢ 房號大解密</div>
         <div class="a">
           男宿：A、E 棟；女宿：C、D 棟。B 棟為健康宿舍（1～4 樓女宿、5～9 樓男宿）。各棟十樓有自修室，每樓有交誼廳及兩台飲水機，偶數層有脫水機。<br><br>
-          寢室編號皆為四碼：第一碼為棟別（A～E 對應 1～5），第二碼為樓層，最後二碼為房間編號，末端英文為床位代號。例如「1111A」表示 A 棟 1 樓 11 號房 A 床。
+          寢室編號皆為四碼 : 第一碼為棟別（A～E 對應 1～5），第二碼為樓層，最後二碼為房間編號，末端英文為床位代號。例如「1111A」表示 A 棟 1 樓 11 號房 A 床。
         </div>
       </div>
 
@@ -1189,7 +1194,7 @@
             </tr>
             <tr>
               <td class="no-wrap-short"><input type="checkbox"></td>
-              <td class="no-wrap-short">枕頭、棉被</td>
+              <td class="no-wrap-short">枕頭、棉便</td>
               <td>依個人習慣攜帶。</td>
             </tr>
             <tr>
@@ -1214,7 +1219,7 @@
             <tr>
               <td class="no-wrap-short"><input type="checkbox"></td>
               <td class="no-wrap-short">日常用品</td>
-              <td>衛生紙、抹布、小型掃把與畚箕（打掃寢室用）、指甲剪、牙線、棉花棒。</td>
+              <td>衛生紙、抹布、小型掃把與畚箕（打掃寢室用）、指甲剪、牙線、棉花棒.</td>
             </tr>
             <tr>
               <td class="no-wrap-short"><input type="checkbox"></td>
@@ -1270,7 +1275,7 @@
         </table>
       </div>
 
-      <!-- 💡 修正位置 2：將房間設施大小圖移動到「表格（行前檢查表）後面，小叮嚀前面」 💡 -->
+      <!-- 💡 修正位置 2 : 將房間設施大小圖移動到「表格（行前檢查表）後面，小叮嚀前面」 💡 -->
       <div class="full-image-card">
         <img src="ccuees-welcome-packet/房間設施大小.png" alt="房間設施大小">
       </div>
@@ -1307,52 +1312,144 @@
         <a class="doc-btn btn-moss" href="https://extra.ccu.edu.tw/p/404-1035-5862.php?Lang=zh-tw" target="_blank" rel="noopener">課外活動組—社團資訊 ↗</a>
       </div>
 
+      <!-- 每個橢圓皆變為按鈕並對應正確連結 -->
       <div class="chip-group">
         <h4>❖ 學術性</h4>
         <div class="chips">
-          <span class="chip">光鹽社</span><span class="chip">辯言社</span><span class="chip">天文社</span><span class="chip">書法研究社</span><span class="chip">法輪大法社</span><span class="chip">領袖社</span><span class="chip">生命活泉社</span><span class="chip">喜信社</span><span class="chip">紫荊圍棋社</span><span class="chip">福智青年社</span><span class="chip">紫荊茶藝社</span><span class="chip">證券研習社</span><span class="chip">創新創業社</span><span class="chip">AIESEC</span><span class="chip">仁風社</span><span class="chip">公共事務研習社</span><span class="chip">鳳梨田橋牌社</span><span class="chip">跨域人才培育社</span><span class="chip">戀財研究社</span><span class="chip">CCU iGEM研究社</span><span class="chip">經絡按摩社</span><span class="chip">中智佛學社</span>
+          <a href="https://www.facebook.com/CCULightSalt" class="chip" target="_blank" rel="noopener">[cite: 4]光鹽社</a>
+          <a href="https://www.facebook.com/ccudebate" class="chip" target="_blank" rel="noopener">[cite: 4]辯言社</a>
+          <a href="https://www.facebook.com/CCUAstro/" class="chip" target="_blank" rel="noopener">[cite: 4]天文社</a>
+          <a href="https://www.facebook.com/ccucalligraphy/" class="chip" target="_blank" rel="noopener">[cite: 4]書法研究社</a>
+          <a href="https://www.facebook.com/thisisinvalidurl_ccufalundafa" class="chip" target="_blank" rel="noopener">[cite: 4]法輪大法社</a>
+          <a href="https://www.facebook.com/chanAtCCU/" class="chip" target="_blank" rel="noopener">[cite: 4]領袖社</a>
+          <a href="https://www.facebook.com/cculivingfountainoflife/" class="chip" target="_blank" rel="noopener">[cite: 4]生命活泉社</a>
+          <a href="https://www.facebook.com/groups/400138946723944" class="chip" target="_blank" rel="noopener">[cite: 4]喜信社</a>
+          <a href="https://www.facebook.com/nccugogame/?locale2=zh_TW&_rdr" class="chip" target="_blank" rel="noopener">[cite: 4]紫荊圍棋社</a>
+          <a href="https://www.facebook.com/ccubwy" class="chip" target="_blank" rel="noopener">[cite: 4]福智青年社</a>
+          <a href="https://www.facebook.com/profile.php?id=100071260705512#" class="chip" target="_blank" rel="noopener">[cite: 4]紫荊茶藝社</a>
+          <a href="https://www.facebook.com/ccusrs?mibextid=ZbWKwL" class="chip" target="_blank" rel="noopener">[cite: 4]證券研習社</a>
+          <a href="https://www.facebook.com/ArgoInnovation/" class="chip" target="_blank" rel="noopener">[cite: 4]創新創業社</a>
+          <a href="https://www.instagram.com/aiesec.in.ccu" class="chip" target="_blank" rel="noopener">[cite: 4]AIESEC</a>
+          <a href="https://www.facebook.com/people/Chiayi%E4%BB%81%E9%A2%A8%E7%A4%BE/100066602829309/" class="chip" target="_blank" rel="noopener">[cite: 4]仁風社</a>
+          <a href="https://www.facebook.com/CCUPublicAffairsClub" class="chip" target="_blank" rel="noopener">[cite: 4]公共事務研習社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E9%B3%B3%E6%A2%A8%E7%94%B0%E6%A9%8B%E7%89%8C%E7%A4%BE-CCU-Bridge/100064086193030/" class="chip" target="_blank" rel="noopener">[cite: 4]鳳梨田橋牌社</a>
+          <a href="https://www.facebook.com/ccuitcc?mibextid=wwXIfr&rdid=SnKZfVDOPzfWb24C&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1EjZimMZu6%2F%3Fmibextid%3DwwXIfr#" class="chip" target="_blank" rel="noopener">[cite: 4]跨域人才培育社</a>
+          <a href="https://www.instagram.com/ccu_lm_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" class="chip" target="_blank" rel="noopener">[cite: 4]戀財研究社</a>
+          <a href="https://igem.ccu.edu.tw/" class="chip" target="_blank" rel="noopener">[cite: 4]CCU iGEM研究社</a>
+          <a href="https://www.instagram.com/ccu.meridian_massage.club?igsh=eno0YnUyejUzcHJn" class="chip" target="_blank" rel="noopener">[cite: 4]經絡按摩社</a>
+          <a href="https://www.facebook.com/ccuccbc/?locale=zh_TW" class="chip" target="_blank" rel="noopener">[cite: 4]中智佛學社</a>
         </div>
       </div>
 
       <div class="chip-group">
         <h4>❖ 體育性</h4>
         <div class="chips">
-          <span class="chip">嵐星登山社</span><span class="chip">瓶蓋棒球社</span><span class="chip">水上活動社</span><span class="chip">國術社</span><span class="chip">空手道社</span><span class="chip">自由搏擊社</span><span class="chip">網球社</span><span class="chip">瑜珈社</span><span class="chip">滑板社</span><span class="chip">鳳梨魔鬼軟式棒球社</span><span class="chip">板球社</span><span class="chip">單車社</span>
+          <a href="https://www.facebook.com/CCUMount" class="chip" target="_blank" rel="noopener">[cite: 4]嵐星登山社</a>
+          <a href="https://www.instagram.com/ccu_capbaseball_club/" class="chip" target="_blank" rel="noopener">[cite: 4]瓶蓋棒球社</a>
+          <a href="https://www.facebook.com/CCUSWIMMING/" class="chip" target="_blank" rel="noopener">[cite: 4]水上活動社</a>
+          <a href="https://www.facebook.com/CCUkungfu" class="chip" target="_blank" rel="noopener">[cite: 4]國術社</a>
+          <a href="https://www.instagram.com/ccu.karate?igsh=dGp2a3RndTB2OTR5" class="chip" target="_blank" rel="noopener">[cite: 4]空手道社</a>
+          <a href="https://www.facebook.com/CCUfreecombat/" class="chip" target="_blank" rel="noopener">[cite: 4]自由搏擊社</a>
+          <a href="https://www.facebook.com/tennis.in.ccu" class="chip" target="_blank" rel="noopener">[cite: 4]網球社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E7%91%9C%E7%8F%88%E7%A4%BE-CCU-YOGA/100079309244980/#" class="chip" target="_blank" rel="noopener">[cite: 4]瑜珈社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E6%BB%91%E6%9D%BF%E7%A4%BE-CCU-skateboard/100068211324822/#" class="chip" target="_blank" rel="noopener">[cite: 4]滑板社</a>
+          <a href="https://www.facebook.com/ccurbb#" class="chip" target="_blank" rel="noopener">[cite: 4]鳳梨魔鬼軟式棒球社</a>
+          <a href="https://www.facebook.com/people/CCU-Cricket-club/100072022847571/" class="chip" target="_blank" rel="noopener">[cite: 4]板球社</a>
+          <a href="https://www.instagram.com/ccu_cycling_club/" class="chip" target="_blank" rel="noopener">[cite: 4]單車社</a>
         </div>
       </div>
 
       <div class="chip-group">
         <h4>❖ 聯誼性</h4>
         <div class="chips">
-          <span class="chip">南友會</span><span class="chip">中友會</span><span class="chip">僑生聯誼會</span><span class="chip">雄友會</span><span class="chip">桃園聯合會</span><span class="chip">轉學生聯誼會</span><span class="chip">雲嘉校友會</span><span class="chip">花蓮校友會</span><span class="chip">中正印度同學會</span>
+          <a href="https://www.facebook.com/ccutainan/" class="chip" target="_blank" rel="noopener">[cite: 4]台南校友會</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E4%B8%AD%E5%8F%8B%E6%9C%83/100039223256266/#" class="chip" target="_blank" rel="noopener">[cite: 4]台中校友會</a>
+          <a href="https://ccuocs.wixsite.com/ccuocsa" class="chip" target="_blank" rel="noopener">[cite: 4]僑生聯誼會</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E9%9B%84%E5%8F%8B%E6%9C%83%E5%A4%A7%E6%B8%AF%E4%BB%A3%E8%A8%80%E4%BA%BA/100090619625813/?mibextid=LQQJ4d" class="chip" target="_blank" rel="noopener">[cite: 4]高雄校友會</a>
+          <a href="https://www.facebook.com/CCUtaoyuan/" class="chip" target="_blank" rel="noopener">[cite: 4]桃園聯合會</a>
+          <a href="https://www.facebook.com/CCUtransfer" class="chip" target="_blank" rel="noopener">[cite: 4]轉學生聯誼會</a>
+          <a href="https://www.facebook.com/YCourhome/" class="chip" target="_blank" rel="noopener">[cite: 4]雲嘉校友會</a>
+          <a href="https://www.facebook.com/ccuhua" class="chip" target="_blank" rel="noopener">[cite: 4]花蓮校友會</a>
+          <a href="https://www.facebook.com/CCUIA111/" class="chip" target="_blank" rel="noopener">[cite: 4]中正印度同學會</a>
         </div>
       </div>
 
       <div class="chip-group">
         <h4>❖ 康樂性</h4>
         <div class="chips">
-          <span class="chip">熱舞社</span><span class="chip">魔術社</span><span class="chip">嘻哈文化研究社</span><span class="chip">中正喜劇社</span><span class="chip">韓國文化研究社</span><span class="chip">日本麻雀研究社</span><span class="chip">原住民文化傳承社</span><span class="chip">集換式卡牌遊戲研究社</span>
+          <a href="https://www.facebook.com/CCUPOPDANCE" class="chip" target="_blank" rel="noopener">[cite: 4]熱舞社</a>
+          <a href="https://www.facebook.com/CCUMagic" class="chip" target="_blank" rel="noopener">[cite: 4]魔術社</a>
+          <a href="https://www.facebook.com/CCUHipHop/" class="chip" target="_blank" rel="noopener">[cite: 4]嘻哈文化研究社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%96%9C%E5%8A%87%E7%A4%BE/61554775675995/" class="chip" target="_blank" rel="noopener">[cite: 4]中正喜劇社</a>
+          <a href="https://www.facebook.com/CCUKPOP" class="chip" target="_blank" rel="noopener">[cite: 4]韓國文化研究社</a>
+          <a href="https://www.facebook.com/CCUJMC" class="chip" target="_blank" rel="noopener">[cite: 4]日本麻雀研究社</a>
+          <a href="https://www.instagram.com/ccuindigenousclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" class="chip" target="_blank" rel="noopener">[cite: 4]原住民文化傳承社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E9%9B%84%E6%8F%9B%E5%BC%8F%E5%8D%A1%E7%89%8C%E7%A0%94%E7%A9%B6%E7%A4%BE-%E7%A0%94%E7%A9%B6k%E8%AA%9E%E8%A8%80%E7%9A%84%E9%B3%B3%E6%A2%A8%E5%B1%8B/100066480497474/" class="chip" target="_blank" rel="noopener">[cite: 4]集換式卡牌遊戲研究社</a>
         </div>
       </div>
 
       <div class="chip-group">
         <h4>❖ 服務性</h4>
         <div class="chips">
-          <span class="chip">十字軍急救服務社</span><span class="chip">國際志工社</span><span class="chip">臨界點工作室</span><span class="chip">寶貝生命社</span><span class="chip">崇德青年志工社</span><span class="chip">法律服務社</span><span class="chip">穫米亞亞阿里山社區工作社</span><span class="chip">4Q志工社</span>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E5%8D%81%E5%AD%97%E8%BB%8D%E6%80%A5%E6%95%91%E6%9C%8D%E5%8B%99%E7%A4%BE-firstaid-club/100069787994339/#" class="chip" target="_blank" rel="noopener">[cite: 4]十字軍急救服務社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E5%9C%8B%E9%9A%9B%E5%BF%97%E5%B7%A5%E9%9A%8A/61564956697930/" class="chip" target="_blank" rel="noopener">[cite: 4]國際志工社</a>
+          <a href="https://www.facebook.com/ccuzero/" class="chip" target="_blank" rel="noopener">[cite: 4]臨界點工作室</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%AF%B6%E8%B2%9D%E7%94%9F%E5%91%BD%E7%A4%BE-CCU-LoveLife-%E6%A0%A1%E5%9C%92%E6%B5%81%E6%B5%AA%E5%8B%95%E7%89%A9tnr/100070295397313/#" class="chip" target="_blank" rel="noopener">[cite: 4]寶貝生命社</a>
+          <a href="https://www.facebook.com/profile.php?id=100064839574780#" class="chip" target="_blank" rel="noopener">[cite: 4]崇德青年志工社</a>
+          <a href="https://www.facebook.com/cculawclub" class="chip" target="_blank" rel="noopener">[cite: 4]法律服務社</a>
+          <a href="https://www.facebook.com/CCU.Homeyaya" class="chip" target="_blank" rel="noopener">[cite: 4]穫米亞亞阿里山社區工作社</a>
+          <a href="https://www.facebook.com/ccufycd347" class="chip" target="_blank" rel="noopener">[cite: 4]4Q志工社</a>
         </div>
       </div>
 
       <div class="chip-group">
         <h4>❖ 音樂性</h4>
         <div class="chips">
-          <span class="chip">織音合唱團</span><span class="chip">Feelings 吉他社</span><span class="chip">東籬國樂社</span><span class="chip">雲想箏樂社</span><span class="chip">管弦樂社</span><span class="chip">打擊樂社</span><span class="chip">熱門音樂社</span><span class="chip">鋼琴社</span><span class="chip">爵士樂社</span><span class="chip">阿卡貝拉社</span>
+          <a href="https://www.facebook.com/CHORUS.CCU/" class="chip" target="_blank" rel="noopener">[cite: 4]織音合唱團</a>
+          <a href="https://www.facebook.com/feelingsguitar" class="chip" target="_blank" rel="noopener">[cite: 4]Feelings 吉他社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E5%A4%A7%E5%AD%B8%E6%9D%B1%E7%B1%AC%E5%9C%8B%E6%A8%82%E7%A4%BE/100063489743854/?ref=page_internal#" class="chip" target="_blank" rel="noopener">[cite: 4]東籬國樂社</a>
+          <a href="https://www.facebook.com/ccuzheng/" class="chip" target="_blank" rel="noopener">[cite: 4]雲想箏樂社</a>
+          <a href="https://linktr.ee/ccuorchestra?fbclid=PAQ0xDSwLAlsRleHRuA2FlbQIxMQABp-zl1QbGus-V80SWnUcvtGsofCePLj69ZD_i3nBzlwnWPGYryXBNgJn4mkrj_aem_ymYPImFL6-nO0pPiB75qig" class="chip" target="_blank" rel="noopener">[cite: 4]管弦樂社</a>
+          <a href="https://www.facebook.com/ccu.percussion/" class="chip" target="_blank" rel="noopener">[cite: 4]打擊樂社</a>
+          <a href="https://www.facebook.com/ccuhotmusicclub" class="chip" target="_blank" rel="noopener">[cite: 4]熱門音樂社</a>
+          <a href="https://www.facebook.com/ccupiano" class="chip" target="_blank" rel="noopener">[cite: 4]鋼琴社</a>
+          <a href="https://www.facebook.com/ccujazzclub/" class="chip" target="_blank" rel="noopener">[cite: 4]爵士樂社</a>
+          <a href="https://www.facebook.com/people/%E4%B8%AD%E6%AD%A3%E7%84%A1%E6%A8%82%E9%98%BF%E5%8D%A1%E8%B2%9D%E6%8B%89%E7%A4%BE/100063574886026/#" class="chip" target="_blank" rel="noopener">[cite: 4]阿卡貝拉社</a>
         </div>
       </div>
 
       <div class="chip-group">
         <h4>❖ 藝術性</h4>
         <div class="chips">
-          <span class="chip">攝影社</span><span class="chip">美術社</span><span class="chip">動畫暨漫畫研習社</span><span class="chip">遊戲社</span><span class="chip">美麗研究社</span><span class="chip">模型研究社</span><span class="chip">表演藝術社(夜貓劇團)</span><span class="chip">火舞藝術社</span><span class="chip">貳零壹玖電影社</span>
+          <a href="https://www.facebook.com/CCUPhotoClub" class="chip" target="_blank" rel="noopener">[cite: 4]攝影社</a>
+          <a href="https://www.facebook.com/CCUArtClub/" class="chip" target="_blank" rel="noopener">[cite: 4]美術社</a>
+          <a href="https://www.facebook.com/CCUACGN/?_rdr" class="chip" target="_blank" rel="noopener">[cite: 4]動畫暨漫畫研習社</a>
+          <a href="https://www.facebook.com/CCUGAMECLUB/?ref=pages_you_manage" class="chip" target="_blank" rel="noopener">[cite: 4]遊戲社</a>
+          <a href="https://www.facebook.com/ccubeautymaker?fref=ts" class="chip" target="_blank" rel="noopener">[cite: 4]美麗研究社</a>
+          <a href="https://www.facebook.com/ccuyacat" class="chip" target="_blank" rel="noopener">[cite: 4]表演藝術社(夜貓劇團)</a>
+          <a href="https://www.facebook.com/CCUFD" class="chip" target="_blank" rel="noopener">[cite: 4]火舞藝術社</a>
+          <a href="https://www.facebook.com/2019FilmClub.ccu/?ref=page_internal" class="chip" target="_blank" rel="noopener">[cite: 4]貳零壹玖電影社</a>
+        </div>
+      </div>
+
+      <!-- 仿照宿舍經驗談樣式新增：社團經驗談 -->
+      <div class="subhead">➢ 社團經驗談</div>
+      <div class="info-grid">
+        <div class="info-card"><h4>⏰ 社課安排與自主性</h4><p>大學社團不像高中一樣有專門的社課時間。 各社團的課大多安排在平日晚上，且彼此時間錯開，大家可以自由決定要不要參加，完全沒有強制性。[cite: 3]</p></div>
+        <div class="info-card"><h4>🧩 多元參與無限制</h4><p>在大學也沒有「只能加一個社團」的限制。 只要你的時間與精力分配得過來，同時參加多個社團都沒問題。[cite: 3]</p></div>
+        <div class="info-card"><h4>🎪 社團聯展黃金期</h4><p>9/1和9/2中午的「社團聯展」是認識各社團的最佳時機，想體驗社團生活的人絕對不能錯過！[cite: 3]</p></div>
+        <div class="info-card"><h4>🎤 震撼之夜與直播</h4><p>9/2晚上還有精彩的社團表演，因為現場觀眾通常非常多，想搶到好位置建議提早前往，如果不方便到場，學校當天也會有網路直播。[cite: 3]</p></div>
+        <div class="info-card"><h4>🤝 尋找理想同好圈</h4><p>社團除了專業社課，更是一個「尋找同好圈」的絕佳管道。 大學社團種類非常多元，包含許多能深度交流的興趣社群。[cite: 3]</p></div>
+      </div>
+
+      <!-- 劃一槓並放入工商時間 -->
+      <hr style="border: none; border-top: 1px dashed rgba(244,236,216,0.3); margin: 40px 0;">
+      
+      <div class="subhead">➢ 工商時間</div>
+      <div class="info-grid" style="grid-template-columns: 1fr;">
+        <div class="info-card">
+          <h4>🎮 動漫社</h4>
+          <p>我們除了基本的ACGN內容或繪畫課，私底下還會延伸出TRPG、日K等大大小小的聚會，能讓你非常自然地融入有一樣熱情、興趣相投圈子裡。[cite: 3]</p>
         </div>
       </div>
 
@@ -1394,7 +1491,7 @@
               <h4>系籃</h4>
               <p><strong>練球時間：</strong>一週會根據大家的時間挑一天練球</p>
               <p><strong>比賽：</strong>新生盃，聯盟賽，大地盃，系際盃</p>
-              <p style="font-size: 0.82rem; opacity: 0.7; margin-top: 4px;">歡迎喜歡籃球的同學加入地環系籃。</p>
+              <p style="font-size: 0.82rem; opacity: 0.7; margin-top: 4px;">歡迎喜歡籃球的同學加入地環系籃。,可以先加入群組認識大家<br>https://line.me/R/ti/g/SGEeYGghYM</p>
             </div>
           </div>
         </div>
